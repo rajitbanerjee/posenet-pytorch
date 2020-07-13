@@ -22,11 +22,15 @@ def _process_input(source_img, scale_factor=1.0, output_stride=16):
     return input_img, source_img, scale
 
 
-def read_cap(cap, scale_factor=1.0, output_stride=16):
+def read_cap(cap, scale_factor=1.0, output_stride=16, webcam=False):
     res, img = cap.read()
     if not res:
-        raise IOError("webcam failure")
-    return _process_input(img, scale_factor, output_stride)
+        if webcam:
+            raise IOError("webcam failure")
+        else:
+            return (False, False, False)
+    else:
+        return _process_input(img, scale_factor, output_stride)
 
 
 def read_imgfile(path, scale_factor=1.0, output_stride=16):
