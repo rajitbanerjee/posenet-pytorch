@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--model', type=int, default=101)
 parser.add_argument('--notxt', action='store_true')
 parser.add_argument('--input', type=str,
-                    default='../../assets/videos/jumping_jacks.mp4')
+                    default='../../media/videos/jumping_jacks.mp4')
 parser.add_argument('--output', type=str,
                     default='./output/')
 parser.add_argument('--scale_factor', type=float, default=1.0)
